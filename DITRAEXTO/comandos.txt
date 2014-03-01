@@ -1,0 +1,331 @@
+===================================================
+
+DITRAEXTO es creado por: 
+			DANIEL MORALES
+
+--------------------------------------------------
+Con propositos educativos y de reto personal.
+--------------------------------------------------
+Soy mexicano y puedes contactarme via:
+	medennysoft@outlook.com
+---------------------------------------------------
+
+Más contenido en: http://www.codedevelopers.hol.es/
+===================================================
+
+
+***************************************************
+¿Como correr un programa python en windows?
+***************************************************
+Primero que nada DITRAEXTO utiliza la versión 2.7 de python, lo puedes descargar de:
+
+Luego necesitas configurar el cmd de windows para que procese los scripts de python de
+manera amigable:
+
+http://stackoverflow.com/questions/4621255/how-do-i-run-a-python-program-in-the-command-prompt-in-windows-7
+
+-----------------------------------------
+
+Assuming you have Python2.7 installed
+
+Goto the Start Menu
+
+Right Click "Computer"
+
+Select "Properties"
+
+A dialog should pop up with a link on the left called "Advanced system settings". Click it.
+
+In the System Properties dialog, click the button called "Environment Variables".
+
+In the Environment Variables dialog look for "Path" under the System Variables window.
+
+Add ";C:\Python27" to the end of it. The semicolon is the path separator on windows.
+
+Click Ok and close the dialogs.
+
+Now open up a new command prompt and type "python"
+
+It should work.
+------------------------------------------
+
+Una vez hecho eso, solo necesitas posicionarte con tu consola(CMD)
+en la carpeta donde tengas DITRAEXTO, suponiendo lo has puesto en C:
+
+
+	cd C:\ditraexto
+
+
+ahora simplemente ejecutamos ditraexto main así:
+
+
+	python dxtra.py
+
+
+ó si tu sistema lo permite:
+
+
+	dxtra.py
+
+Cuando se extraen los datos se crea una carpeta dentro de 
+la carpeta: files o archivos.
+
+***************************************************
+Archivos en DITRAEXTO
+***************************************************
+-dxtra.py:
+
+	Es el programa principal encargado de explotar
+	la falla en sitios. Es una versión no concluida
+	pero que es útil para ciertas pruebas.
+
+-helpXtra.py
+	Es un complemento de dxtra.py nos ayudara
+	a crear una lista de archivos mediante código
+	parecido al siguiente:
+	
+	Méotods que utilizan argumentos.
+
+	__autoLoad('database');
+	__autoload('defaultpublisher');
+	
+	sustituidos en:
+		'classes/ . strtolower($name) . '.class.php';
+
+	
+	sustituidos en:
+		'classes/ . strtolower($name) . '.class.php';
+
+	la variables es:
+		strtolower($name)
+
+	Procesamos con helpXtra:
+		helpxtra.py -b "'classes/ . strtolower($name) . '.class.php';" -k "strtolower($name)"
+
+	Ahora explotamos:
+		para una lista normal automatica usar:
+			dxtra.py www.sitio.com /forgotpassword/-t php -tm 1
+
+
+		para una lista generada a partir de helpxtra usar:
+			dxtra.py www.sitio.com /forgot_password/  -t php -tm 2 -co 0
+
+
+
+
+
+***************************************************
+Comandos comunes en DITRAEXTO
+***************************************************
+
+-CRAWLER DE DITRAEXTO-
+
+Uso de crawler para explotar automaticamente:
+
+dxtra.py www.sitio.com /forgot_password/ -f index -t  php  -tm 2
+
+Resumen:
+
+	script: dxtra.py
+	sitio	www.sitio.com	
+	carpeta	/forgot_password/ 
+	comando -f 
+	documento vulnerable sin extension   index
+	comando -t 
+	tipo de archivo   php
+	comando -tm 2  
+
+
+*-t indica el tipo de archivo.
+*-tm- representa el tipo de procesamiento de targets, 2 indica que usara una lista creada por  el crawler de dxtra, 1 indica una lista creada por nosotros y 0 (default, omitir) procesa un solo target.
+*-co 0- indica que usaremos una lista de helpxtra, agregara los datos a tabla de símbolos.
+
+-Delimitadores en DITRAEXTO-
+	Cuando en un archivo(php, asp, jsp, ...) existe una cantidad de código que no es	
+	reconocido para extraección,  es posible usar delimitadores, debemos especificar un 
+	delimitador izquierdo y derecho.
+
+	Ejemplo:
+		//... codigo anterior en html
+		var getCookie = <jxp varx example= 0.12, password = "xxsa" />
+		//... codigo restante del documento
+
+el comando para ejecutarlo sería:
+	dxtra.py www.sitio.com /forgot_password/  -tm 1 -dm 1 -lp <jxp -rp />
+	
+	-tm 1  <--- tipo de procesamiento de lista
+	-dm 1  <--- activamos detección de delimitadores
+	-lp <jxp  <--- delimitador izquierdo
+	-rp />    <--- delimitador derecho
+
+
+
+
+
+
+
+-Modo de trabajo en DITRAEXTO-
+
+Imaginemos una dirección del tipo:
+	http://www.localhost/exploitXy/medennyvulnerable.php?url=pagina1.php
+
+Esto es importante DITRAEXTO siempre trabaja en modo POST, via complemento de cookies
+es posible explotar mediante una URL cambiando a modo GET mediante el siguiente comando:
+
+dxtra.py localhost /exploitXy/medennyvulnerable.php -f logs -t php -ex 1 -v url
+
+-ex 1   <---- cambiamos a modo GET
+-v url	<---- indice de GET, parametro a explotar
+
+
+También es posible manejar modo GET con listas de Helpxtra:
+
+dxtra.py localhost /exploitXy/medennyvulnerable.php -f index -t php -tm 2 -ex 1 -v url
+
+
+
+***************************************************
+Instalando un nuevo lenguaje en DITRAEXTO
+***************************************************
+En DITRAEXTO existen archivos de configuracion que son importantes
+para su funcionamiento, debo aclarar que por cada lenguaje soportado debe
+de existir una carpeta con ese alias, por ejemplo para php, el alias es
+"php" entonces existirá una carpeta llamada "php" ya que dentro se encontraran
+los archivos de configuracion de DXTRA para este lenguaje.
+
+Actualmente solo existe definido el lenguaje PHP y es el único reconocido y procesado
+por DXTRA sin embargo no es dificil configurar los patrones de reconocimiento.
+
+Para "instalar" un nuevo lenguaje debera de agregar un alias al archivo delimeters.txt
+posteriormente crear una nueva carpeta con el alias en la misma raiz de delimeters.txt.
+Dentro debera definir los archivos que seran utilizados.
+
+
+
+***************************************************
+Archivos de configuración de DITRAEXTO
+***************************************************
+delimeters.txt
+	Este archivo nos muestra los delimitadores por defecto que puede
+	tomar DITRAEXTO, observamos que tiene reconocido a php, asp, xml, js,...
+	
+	Para configurar un nuevo delimitador, solo agrega al final del archivo
+	el delimitador con el siguiente formato:
+		name_open_end_
+	
+	observa algunos ejemplos:
+		php_<?_?>_
+		html_<html_</html>_
+
+	Agreguemos el nuestro:
+		DXT_%%_$%%_
+	
+	Podemos ver que le hemos dato un alias y hemos definido los delimitadores
+	tanto izquierdo como el derecho, cuando vayamos a explotar un sitio con el formato
+	index.DXT, simplemente declararemos nuestro comando así:
+
+	dxtra.py www.sitio.com /forgot_password/ -f index -t  DXT  -tm 2
+
+
+	
+irregular.txt
+	Observamos que irregular contiene los datos a utilizar por helpxtra
+	en el colocaremos una serie de llamadas a métodos a los que se les extraeran
+	los argumentos y seran sustituidos en el string base:
+
+	__autoLoad('database');
+
+	es la llamada al metodo __autoload.
+
+
+
+***************************************************
+Carpetas alias de los lenguajes en DITRAEXTO
+***************************************************
+
+	Como se comentó anteriormente es necesario crear 
+	una carpeta alias por cada lenguaje que instalemos
+	en DITRAEXTO.
+
+	Una vez creada la carpeta alias del lenguaje dentro
+	deberan de ir los siguientes archivos, respetando
+	mayusculas y minusculas:
+
+	patronCrawler.txt
+	patronDefinitions.txt
+	patronReservedWords.txt
+	patronVars.txt
+	
+	
+	Definiendo los archivos:
+
+		patronCrawler.txt: 
+			Definimos el patron que se utilizará
+			para la busqueda recursiva de archivos incluidos
+			o embebidos dentro del documento que se esta analizando.
+			
+			Es importante seguir el siguiente formato:
+			dato_izq *delimitadorFinal*
+				
+			EJ, si queremos que tome los archivos ente el estatuto reservado:
+
+				incluir "documento.frt";
+				incluir("indice.frt");
+
+  			entonces debemos definir el patron de la siguiente manera:
+				incluir * ;*
+				incluir(*);*
+
+
+			
+		patronDefinitions.txt:
+					
+			Este archivo se utiliza para definir las palabras 
+			reservadas que generan CONSTANTES:
+
+			constante NOMBRE, variable2;
+			constante(NOMBRE, variable3);
+
+			Se debera agregar:
+
+			constante(**, **);*
+	     		constante**, **;*
+
+			El formato es el siguiente:
+			
+			delimIzquierdo**delimCentral**delimderecho*
+
+
+
+
+		patronReservedWords.txt:
+			Define las palabras reservadas que pueden causar problemas
+			se ingoraran cuando se encuentren o en todo caso se buscara
+			en la tabla de simbolos si representan una variable o algún identificador:
+
+
+			El formato es:
+				minuscula*MAYUSCULA*mInaVar
+				
+			ejemplo:
+				$_SERVER['DOCUMENT_ROOT'].*$_SERVER['DOCUMENT_ROOT']*
+				new *NEW *
+
+		patronVars.txt:
+			Proporciona información al programa sobre como puede lucir una variable
+			en el caso de php es algo así:
+
+			$*=*;*$this->*
+			
+			el formato es:
+			
+			simboloInicio*simboloIntermedio*Simbolo final*instruccionVariante
+			
+			como podemos observar una variable en php inicia en $, luego tiene una asignación, y termina en ;
+			una variante para hacer referencia a una variable es cuando se aplica:
+
+			$this->variable.
+
+			Las variables y sus definiciones se agregan a una tabla de simbolos
+			para su posterior utilización.
+

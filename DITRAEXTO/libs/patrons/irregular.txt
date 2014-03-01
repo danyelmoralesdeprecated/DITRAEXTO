@@ -1,0 +1,14 @@
+__autoLoad('database');
+__autoload('defaultpublisher');
+__autoload('publisher');
+__autoload('object');
+__autoLoad('staticman');
+__autoLoad('services_json');
+__autoload('auth');
+__autoload('mailer');
+__autoload('filecache');
+__autoload('zuoraservice');
+__autoload('user');
+__autoload('emailverification');
+__autoload('channel');
+__autoload('filecache');

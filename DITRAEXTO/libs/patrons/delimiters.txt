@@ -1,0 +1,7 @@
+name_open_end_
+php_<?_?>_
+html_<html_</html>_
+xml_<?xml_</chooseEnd_Or_Let_It_Open>_
+js_<script_</script>_
+asp_<%@_%>_
+aspx_<%@_%>_
