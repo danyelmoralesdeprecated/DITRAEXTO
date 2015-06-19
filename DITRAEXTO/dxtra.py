@@ -2,8 +2,6 @@
 #CREATED BY: DANYEL MORALES                   #
 #FOR TESTING DIRECTORY TRAVERSAL VULNERABILITY#
 ###############################################
-#VISIT: medennysoft.com                       #
-#CONTACT ME: contacto@medennysoft.com         #
 ####################################################
 #DITRAEXTO - Directory Traversal Exploitation Tool.#
 ####################################################
