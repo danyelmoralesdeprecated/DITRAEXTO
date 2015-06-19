@@ -2,8 +2,8 @@
 #CREATED BY: DANYEL MORALES                   #
 #FOR TESTING DIRECTORY TRAVERSAL VULNERABILITY#
 ###############################################
-#VISIT: medennysoft.com                       #
-#CONTACT ME: contacto@medennysoft.com         #
+#VISIT: blog.tugaloper.com                 
+#CONTACT ME: danielmorales@tugaloper.com
 ###############################################
 from ErrorHandlerMod import ErrorHandler
 import os
