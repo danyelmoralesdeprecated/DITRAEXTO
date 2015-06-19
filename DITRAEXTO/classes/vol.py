@@ -6,7 +6,7 @@ class randomImage:
         number = random.randint(0, 1)
         self.image(number)
         print("This tool is created by Daniel Morales".center(80))
-        print ("contacto@medennysoft.com".center(80))
+        print ("danielmorales@tugaloper.com".center(80))
         
     def image(self, number):
 
