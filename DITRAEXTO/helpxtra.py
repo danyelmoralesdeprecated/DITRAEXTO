@@ -1,9 +1,9 @@
 ###############################################
 #CREATED BY: DANYEL MORALES                   #
 #FOR TESTING DIRECTORY TRAVERSAL VULNERABILITY#
-###############################################
-#VISIT: codedevelopers.hol.es                 #
-#CONTACT ME: medennysoft@outlook.com          #
+####################################################
+#VISIT: http://www.blog.tugaloper.com              #
+#CONTACT ME: danielmorales@tugaloper.com           #
 ####################################################
 #    helpXtra - building urls using methods.       #
 ####################################################
