@@ -7,17 +7,17 @@ DITRAEXTO es creado por:
 Con propositos educativos y de reto personal.
 --------------------------------------------------
 Soy mexicano y puedes contactarme via:
-	medennysoft@outlook.com
+		danielmorales@tugaloper.com
 ---------------------------------------------------
 
-Más contenido en: http://www.codedevelopers.hol.es/
+MÃ¡s contenido en: http://www.blog.tugaloper.com/
 ===================================================
 
 
 ***************************************************
-¿Como correr un programa python en windows?
+Â¿Como correr un programa python en windows?
 ***************************************************
-Primero que nada DITRAEXTO utiliza la versión 2.7 de python, lo puedes descargar de:
+Primero que nada DITRAEXTO utiliza la versiÃ³n 2.7 de python, lo puedes descargar de:
 
 Luego necesitas configurar el cmd de windows para que procese los scripts de python de
 manera amigable:
@@ -56,13 +56,13 @@ en la carpeta donde tengas DITRAEXTO, suponiendo lo has puesto en C:
 	cd C:\ditraexto
 
 
-ahora simplemente ejecutamos ditraexto main así:
+ahora simplemente ejecutamos ditraexto main asÃ­:
 
 
 	python dxtra.py
 
 
-ó si tu sistema lo permite:
+Ã³ si tu sistema lo permite:
 
 
 	dxtra.py
@@ -76,15 +76,15 @@ Archivos en DITRAEXTO
 -dxtra.py:
 
 	Es el programa principal encargado de explotar
-	la falla en sitios. Es una versión no concluida
-	pero que es útil para ciertas pruebas.
+	la falla en sitios. Es una versiÃ³n no concluida
+	pero que es Ãºtil para ciertas pruebas.
 
 -helpXtra.py
 	Es un complemento de dxtra.py nos ayudara
-	a crear una lista de archivos mediante código
+	a crear una lista de archivos mediante cÃ³digo
 	parecido al siguiente:
 	
-	Méotods que utilizan argumentos.
+	MÃ©otods que utilizan argumentos.
 
 	__autoLoad('database');
 	__autoload('defaultpublisher');
@@ -138,11 +138,11 @@ Resumen:
 
 *-t indica el tipo de archivo.
 *-tm- representa el tipo de procesamiento de targets, 2 indica que usara una lista creada por  el crawler de dxtra, 1 indica una lista creada por nosotros y 0 (default, omitir) procesa un solo target.
-*-co 0- indica que usaremos una lista de helpxtra, agregara los datos a tabla de símbolos.
+*-co 0- indica que usaremos una lista de helpxtra, agregara los datos a tabla de sÃ­mbolos.
 
 -Delimitadores en DITRAEXTO-
-	Cuando en un archivo(php, asp, jsp, ...) existe una cantidad de código que no es	
-	reconocido para extraección,  es posible usar delimitadores, debemos especificar un 
+	Cuando en un archivo(php, asp, jsp, ...) existe una cantidad de cÃ³digo que no es	
+	reconocido para extraecciÃ³n,  es posible usar delimitadores, debemos especificar un 
 	delimitador izquierdo y derecho.
 
 	Ejemplo:
@@ -150,11 +150,11 @@ Resumen:
 		var getCookie = <jxp varx example= 0.12, password = "xxsa" />
 		//... codigo restante del documento
 
-el comando para ejecutarlo sería:
+el comando para ejecutarlo serÃ­a:
 	dxtra.py www.sitio.com /forgot_password/  -tm 1 -dm 1 -lp <jxp -rp />
 	
 	-tm 1  <--- tipo de procesamiento de lista
-	-dm 1  <--- activamos detección de delimitadores
+	-dm 1  <--- activamos detecciÃ³n de delimitadores
 	-lp <jxp  <--- delimitador izquierdo
 	-rp />    <--- delimitador derecho
 
@@ -166,7 +166,7 @@ el comando para ejecutarlo sería:
 
 -Modo de trabajo en DITRAEXTO-
 
-Imaginemos una dirección del tipo:
+Imaginemos una direcciÃ³n del tipo:
 	http://www.localhost/exploitXy/medennyvulnerable.php?url=pagina1.php
 
 Esto es importante DITRAEXTO siempre trabaja en modo POST, via complemento de cookies
@@ -178,7 +178,7 @@ dxtra.py localhost /exploitXy/medennyvulnerable.php -f logs -t php -ex 1 -v url
 -v url	<---- indice de GET, parametro a explotar
 
 
-También es posible manejar modo GET con listas de Helpxtra:
+TambiÃ©n es posible manejar modo GET con listas de Helpxtra:
 
 dxtra.py localhost /exploitXy/medennyvulnerable.php -f index -t php -tm 2 -ex 1 -v url
 
@@ -190,10 +190,10 @@ Instalando un nuevo lenguaje en DITRAEXTO
 En DITRAEXTO existen archivos de configuracion que son importantes
 para su funcionamiento, debo aclarar que por cada lenguaje soportado debe
 de existir una carpeta con ese alias, por ejemplo para php, el alias es
-"php" entonces existirá una carpeta llamada "php" ya que dentro se encontraran
+"php" entonces existirÃ¡ una carpeta llamada "php" ya que dentro se encontraran
 los archivos de configuracion de DXTRA para este lenguaje.
 
-Actualmente solo existe definido el lenguaje PHP y es el único reconocido y procesado
+Actualmente solo existe definido el lenguaje PHP y es el Ãºnico reconocido y procesado
 por DXTRA sin embargo no es dificil configurar los patrones de reconocimiento.
 
 Para "instalar" un nuevo lenguaje debera de agregar un alias al archivo delimeters.txt
@@ -203,7 +203,7 @@ Dentro debera definir los archivos que seran utilizados.
 
 
 ***************************************************
-Archivos de configuración de DITRAEXTO
+Archivos de configuraciÃ³n de DITRAEXTO
 ***************************************************
 delimeters.txt
 	Este archivo nos muestra los delimitadores por defecto que puede
@@ -222,7 +222,7 @@ delimeters.txt
 	
 	Podemos ver que le hemos dato un alias y hemos definido los delimitadores
 	tanto izquierdo como el derecho, cuando vayamos a explotar un sitio con el formato
-	index.DXT, simplemente declararemos nuestro comando así:
+	index.DXT, simplemente declararemos nuestro comando asÃ­:
 
 	dxtra.py www.sitio.com /forgot_password/ -f index -t  DXT  -tm 2
 
@@ -230,7 +230,7 @@ delimeters.txt
 	
 irregular.txt
 	Observamos que irregular contiene los datos a utilizar por helpxtra
-	en el colocaremos una serie de llamadas a métodos a los que se les extraeran
+	en el colocaremos una serie de llamadas a mÃ©todos a los que se les extraeran
 	los argumentos y seran sustituidos en el string base:
 
 	__autoLoad('database');
@@ -243,7 +243,7 @@ irregular.txt
 Carpetas alias de los lenguajes en DITRAEXTO
 ***************************************************
 
-	Como se comentó anteriormente es necesario crear 
+	Como se comentÃ³ anteriormente es necesario crear 
 	una carpeta alias por cada lenguaje que instalemos
 	en DITRAEXTO.
 
@@ -260,7 +260,7 @@ Carpetas alias de los lenguajes en DITRAEXTO
 	Definiendo los archivos:
 
 		patronCrawler.txt: 
-			Definimos el patron que se utilizará
+			Definimos el patron que se utilizarÃ¡
 			para la busqueda recursiva de archivos incluidos
 			o embebidos dentro del documento que se esta analizando.
 			
@@ -301,7 +301,7 @@ Carpetas alias de los lenguajes en DITRAEXTO
 		patronReservedWords.txt:
 			Define las palabras reservadas que pueden causar problemas
 			se ingoraran cuando se encuentren o en todo caso se buscara
-			en la tabla de simbolos si representan una variable o algún identificador:
+			en la tabla de simbolos si representan una variable o algÃºn identificador:
 
 
 			El formato es:
@@ -312,8 +312,8 @@ Carpetas alias de los lenguajes en DITRAEXTO
 				new *NEW *
 
 		patronVars.txt:
-			Proporciona información al programa sobre como puede lucir una variable
-			en el caso de php es algo así:
+			Proporciona informaciÃ³n al programa sobre como puede lucir una variable
+			en el caso de php es algo asÃ­:
 
 			$*=*;*$this->*
 			
@@ -321,11 +321,11 @@ Carpetas alias de los lenguajes en DITRAEXTO
 			
 			simboloInicio*simboloIntermedio*Simbolo final*instruccionVariante
 			
-			como podemos observar una variable en php inicia en $, luego tiene una asignación, y termina en ;
+			como podemos observar una variable en php inicia en $, luego tiene una asignaciÃ³n, y termina en ;
 			una variante para hacer referencia a una variable es cuando se aplica:
 
 			$this->variable.
 
 			Las variables y sus definiciones se agregan a una tabla de simbolos
-			para su posterior utilización.
+			para su posterior utilizaciÃ³n.
 
